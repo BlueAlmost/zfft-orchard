@@ -1,0 +1,1 @@
+json files of the results of running speed tests are written in this directory
