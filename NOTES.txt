@@ -1,0 +1,42 @@
+
+This zig code is based on work of Alexandre Becoulet whose c-code source
+files are found at: https://github.com/diaxen/fft-garden.  
+
+The name of this zig-code repo "fft-orchard" is deliberately chosen to be
+similar in name as an acknowledgement to the original.
+
+The original fft_garden code is an initial work as part of a published
+paper "A Depth-First Iterative Algorithm for the Conjugate Pair Fast Fourier
+Transform" (available at: https://www.techrxiv.org/articles/preprint/A_Depth-First_Iterative_Algorithm_for_the_Conjugate_Pair_Fast_Fourier_Transform/13489392)
+
+For the fft algorithm files, the naming of the zig source files reflects the naming
+of the original c-code files.  The names consist of 3 parts (and a 4th optional part):
+
+BUTTERFLY DESIGN:
+
+   ct - cooley-tukey radix-2 fft
+   mr - mixed radix 2/4 fft
+   sr - split radix fft
+   cp - conjugate pair fft
+
+DECIMATION:
+
+   dit - decimation in time
+   dif - decimation in freq
+
+TRAVERSAL & ALGORITHM STRUCTURE:
+
+   bi - breadth-first iterative
+   dr - depth-first recursive
+   di - depth-first iterative
+
+OPTIONAL ADDITIONAL PROPERTIES:
+
+   G - butterflies use same twiddles grouped by stage
+   S - butterflies use same twiddels grouped by block
+   L - input reordering and/or butterfly scheduling may rely on lookup tables
+   P - butterfly functions may be simplified from some twiddle factor values
+   F - twiddle table may be reduced to N/8 entries
+   N - algorithm made to work in-place
+
+
