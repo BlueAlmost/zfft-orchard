@@ -21,8 +21,9 @@ Issuing a ***'zig build'*** command will build executables in the *'zig-out/bin'
 
 Issuing a ***'run_speed_loop.sh'*** command (assumes bash shell is present on system) will loop over all fft algorithms, placing timing results json files into the *'results'* directory.  
 
-In the *'src/julia'* subdirectory there is a *'plot_results.jl'* program that will produce eight plot figures of the timing results. An example figure is found below for conjugate pair float 64:
-![Figure_5](https://github.com/BlueAlmost/zfft-orchard/assets/100024520/212c5d48-5980-4357-82f0-b3d0042b35e6)
+In the *'src/julia'* subdirectory there is a *'plot_results.jl'* program that will produce eight plot figures of the timing results. An example figure is found below for conjugate pair float 64:  
+![Figure_5](https://github.com/BlueAlmost/zfft-orchard/assets/100024520/2e54c7aa-ad5b-4961-b42f-7244f055b211)
+
 
 ### Naming of fft algorithm source files
 
