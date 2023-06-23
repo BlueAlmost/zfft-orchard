@@ -11,7 +11,7 @@ A preprint version of this paper (released under Creative Commons Attribution-No
 The zig versions of the fft algorithms attempt to remain as close to the original c-code as possible, while still following zig idioms.  A more liberal translation approach was taken with regard to the supporting code (butterflies, luts, etc.).
 
 The name of this zig-code repo **"fft-orchard"** is deliberately chosen to be
-similar in name as an acknowledgement to the original **"fft-garden"**
+similar in name as an acknowledgement to the original **"fft-garden"**.  
 
 ### Verification test
 Issuing a ***'zig build test'*** will run verification tests on fft algorithm results, and all associated utilities.  
