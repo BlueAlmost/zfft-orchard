@@ -33,7 +33,7 @@ TRAVERSAL & ALGORITHM STRUCTURE:
 OPTIONAL ADDITIONAL PROPERTIES:
 
    G - butterflies use same twiddles grouped by stage
-   S - butterflies use same twiddels grouped by block
+   S - butterflies use same twiddles grouped by block
    L - input reordering and/or butterfly scheduling may rely on lookup tables
    P - butterfly functions may be simplified from some twiddle factor values
    F - twiddle table may be reduced to N/8 entries

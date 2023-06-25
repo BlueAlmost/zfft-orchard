@@ -27,10 +27,10 @@ const get_twiddle = @import("Twiddles").Std.get;
 const get_twiddle_mr = @import("Twiddles").Std.get_mr;
 
 pub fn fft(comptime C: type, N: usize, w: [*]C, out: [*]C, in: [*]C) void {
-    mr_dit_bi_G_P(C, w, N, in, out);
+    mr_dit_bi_S_P(C, w, N, in, out);
 }
 
-pub fn mr_dit_bi_G_P(comptime C: type, w: [*]C, N: usize, in: [*]C, out: [*]C) void {
+pub fn mr_dit_bi_S_P(comptime C: type, w: [*]C, N: usize, in: [*]C, out: [*]C) void {
     const log2_N: usize = math.log2(N);
 
     // stage 0

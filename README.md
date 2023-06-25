@@ -51,7 +51,7 @@ of the original c-code files.  The names consist of 3 parts (and a 4th optional 
 **4.** **OPTIONAL ADDITIONAL PROPERTIES:**
 
    **G**  -  butterflies use same twiddles grouped by stage  
-   **S**  -  butterflies use same twiddels grouped by block  
+   **S**  -  butterflies use same twiddles grouped by block  
    **L**  -  input reordering and/or butterfly scheduling may rely on lookup tables  
    **P**  -  butterfly functions may be simplified from some twiddle factor values  
    **F**  -  twiddle table may be reduced to N/8 entries  
