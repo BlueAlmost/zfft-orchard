@@ -26,7 +26,7 @@ pub fn fft(comptime C: type, size: usize, out: [*]C, in: [*]C, stride: usize) vo
             var a: C = out[i];
             var b: C = out[i + half];
 
-            var angle: V = 2 * math.pi * @intToFloat(V, i) / @intToFloat(V, size);
+            var angle: V = 2 * math.pi * @as(V, @floatFromInt(i)) / @as(V, @floatFromInt(size));
             var tw: C = undefined;
 
             tw.re = @cos(angle);

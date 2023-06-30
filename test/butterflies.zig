@@ -307,8 +307,8 @@ pub fn test_ct_dit_bf2() !void {
         const C: type = Complex(T);
 
         var w: C = undefined;
-        w.re = @cos(math.pi * @intToFloat(T, -2) / @intToFloat(T, 16));
-        w.im = @sin(math.pi * @intToFloat(T, -2) / @intToFloat(T, 16));
+        w.re = @cos(math.pi * @as(T, @floatFromInt(-2)) / @as(T, @floatFromInt(16)));
+        w.im = @sin(math.pi * @as(T, @floatFromInt(-2)) / @as(T, @floatFromInt(16)));
 
         var out = try allocator.alloc(C, 4);
 
@@ -377,8 +377,8 @@ pub fn test_ct_dif_bf2() !void {
         const C: type = Complex(T);
 
         var w: C = undefined;
-        w.re = @cos(math.pi * @intToFloat(T, -2) / @intToFloat(T, 16));
-        w.im = @sin(math.pi * @intToFloat(T, -2) / @intToFloat(T, 16));
+        w.re = @cos(math.pi * @as(T, @floatFromInt(-2)) / @as(T, @floatFromInt(16)));
+        w.im = @sin(math.pi * @as(T, @floatFromInt(-2)) / @as(T, @floatFromInt(16)));
 
         var out = try allocator.alloc(C, 4);
 

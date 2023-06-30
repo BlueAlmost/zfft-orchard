@@ -17,14 +17,14 @@ pub const None = struct {
     pub fn get(comptime C: type, i: usize, log2_N: usize) C {
         const V = ValueType(C);
         const N = math.shl(usize, 1, log2_N);
-        const theta: V = -2 * math.pi * @intToFloat(V, i) / @intToFloat(V, N);
+        const theta: V = -2 * math.pi * @as(V, @floatFromInt(i)) / @as(V, @floatFromInt(N));
         return C.init(@cos(theta), @sin(theta));
     }
 
     pub fn get_sr(comptime C: type, i: usize, log2_N: usize) C {
         const V = ValueType(C);
         const N = math.shl(usize, 1, log2_N);
-        const theta: V = -2 * math.pi * @intToFloat(V, 3 * i) / @intToFloat(V, N);
+        const theta: V = -2 * math.pi * @as(V, @floatFromInt(3 * i)) / @as(V, @floatFromInt(N));
         return C.init(@cos(theta), @sin(theta));
     }
 
@@ -41,7 +41,7 @@ pub const Short = struct {
         // var theta: V = undefined;
         var i: usize = 0;
         while (i < l) : (i += 1) {
-            var theta: V = -2.0 * math.pi * @intToFloat(V, i) / @intToFloat(V, N);
+            var theta: V = -2.0 * math.pi * @as(V, @floatFromInt(i)) / @as(V, @floatFromInt(N));
             twiddles[i].re = @cos(theta);
             twiddles[i].im = @sin(theta);
         }
@@ -83,7 +83,7 @@ pub const Short = struct {
 
         // determine i, the "block index", i.e. which of 4 "blocks" k resides in
         const m: U = math.shl(U, 1, log2_N - 3);
-        const i: U = @truncate(U, k) / m;
+        const i: U = @as(U, @truncate(k)) / m;
 
         // swp is set for block indices 1 and 2.
         // these blocks swap real <--> imaginary components
@@ -104,7 +104,7 @@ pub const Short = struct {
 
         // obtain pointer into proper location of short table z and
         // perform swapping and negation as needed.
-        var twiddles_p: [*]U = @ptrCast([*]U, &twiddles[q]);
+        var twiddles_p: [*]U = @as([*]U, @ptrCast(&twiddles[q]));
         vi.u = twiddles_p[swp ^ 1] ^ (math.shl(U, swp, @bitSizeOf(U) - 1));
         vr.u = twiddles_p[swp] ^ (math.shl(U, (i & 1), @bitSizeOf(U) - 1));
 
@@ -141,7 +141,7 @@ pub const Std = struct {
         // var theta: V = undefined;
         var i: usize = 0;
         while (i < l) : (i += 1) {
-            var theta: V = -2.0 * std.math.pi * @intToFloat(V, i) / @intToFloat(V, N);
+            var theta: V = -2.0 * std.math.pi * @as(V, @floatFromInt(i)) / @as(V, @floatFromInt(N));
             twiddles[i].re = @cos(theta);
             twiddles[i].im = @sin(theta);
         }
@@ -166,7 +166,7 @@ pub const Std = struct {
         var theta: V = undefined;
         var i: usize = 0;
         while (i < l) : (i += 1) {
-            theta = -2.0 * std.math.pi * @intToFloat(V, i) / @intToFloat(V, N);
+            theta = -2.0 * std.math.pi * @as(V, @floatFromInt(i)) / @as(V, @floatFromInt(N));
             twiddles[i].re = @cos(theta);
             twiddles[i].im = @sin(theta);
 

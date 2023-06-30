@@ -59,8 +59,8 @@ pub fn Bench() type {
 
             if (x_ref.len == 16) {
                 for (x_ref, 0..) |_, i| {
-                    x_ref[i].re = -2.0 * @intToFloat(V, i);
-                    x_ref[i].im = @intToFloat(V, i * i);
+                    x_ref[i].re = -2.0 * @as(V, @floatFromInt(i));
+                    x_ref[i].im = @as(V, @floatFromInt(i * i));
 
                     x[i].re = x_ref[i].re;
                     x[i].im = x_ref[i].im;
@@ -81,10 +81,10 @@ pub fn Bench() type {
 
             switch (V) {
                 f32 => {
-                    eps = @intToFloat(V, nfft) * 1e-5;
+                    eps = @as(V, @floatFromInt(nfft)) * 1e-5;
                 },
                 f64 => {
-                    eps = @intToFloat(V, nfft) * 1e-10;
+                    eps = @as(V, @floatFromInt(nfft)) * 1e-10;
                 },
                 else => {
                     @compileError("unexpected type");
@@ -152,7 +152,7 @@ pub fn Bench() type {
                     @call(.auto, fft, structToTuple(args));
                 }
 
-                time[i_rep] = 1e-9 * @intToFloat(f64, timer.read() - start);
+                time[i_rep] = 1e-9 * @as(f64, @floatFromInt(timer.read() - start));
                 std.time.sleep(self.sleep_ns);
             }
 
